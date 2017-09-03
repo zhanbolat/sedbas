@@ -1,6 +1,6 @@
-package controller;
+package kz.bonita.services.controller;
 
-import model.User;
+import kz.bonita.services.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -11,31 +11,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import service.BonitaServices;
+import kz.bonita.services.service.BonitaServices;
 
 import java.util.List;
 
-//import kz.bonita.services.kz.bonita.services.service.UserService;
-
 @RestController
+@RequestMapping("api")
 public class LoginController {
 
-//    private final UserService userService;
     private final BonitaServices bonitaServices;
 
     @Autowired
     public LoginController(BonitaServices bonitaServices) {
         this.bonitaServices = bonitaServices;
-    }
-
-
-//    public LoginController(UserService userService) {
-//        this.userService = userService;
-//    }
-
-    @RequestMapping("/")
-    public String hello() {
-        return "Hello World!";
     }
 
     @RequestMapping(
@@ -58,7 +46,7 @@ public class LoginController {
             User user1 = new User();
             user1.setEmail(user.getEmail());
             user1.setFirstname(user.getFirstname());
-            user1.setLastname(userId);
+            user1.setLastname("Ss");
             user1.setId(user.getId());
 
             HttpHeaders headers = new HttpHeaders();
@@ -66,9 +54,9 @@ public class LoginController {
                 System.out.println("Cookie to be added: " + cookie);
                 headers.add("Set-Cookie", cookie);
             }
-//            headers.add("Access-Control-Allow-Origin", "*");
+            headers.add("Access-Control-Allow-Origin", "*");
             ResponseEntity responseEntity = new ResponseEntity<>(user1, headers, HttpStatus.OK);
-//            System.out.println("Response headers: " + responseEntity.getHeaders());
+            System.out.println("Response headers: " + responseEntity.getHeaders());
 
             return responseEntity;
         } catch (Exception e) {

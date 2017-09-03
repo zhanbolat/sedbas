@@ -1,4 +1,4 @@
-package util;
+package kz.bonita.services.util;
 
 import org.apache.http.HttpResponse;
 

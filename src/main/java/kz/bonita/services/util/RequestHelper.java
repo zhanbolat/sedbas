@@ -1,4 +1,4 @@
-package util;
+package kz.bonita.services.util;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.CookieStore;
@@ -64,8 +64,8 @@ public class RequestHelper {
                     cookies = new StringBuilder();
                     cookies.append(cookie.getName()).append("=").append(cookie.getValue());
                     if (cookie.getExpiryDate() != null) cookies.append("; Expires=").append(cookie.getExpiryDate());
-                    if (cookie.getPath() != null) cookies.append("; Path=").append("/bonita");
-//                    if (cookie.getDomain() != null) cookies.append("; domain=").append(cookie.getDomain());
+                    if (cookie.getPath() != null) cookies.append("; Path=").append(cookie.getPath());
+                    if (cookie.getDomain() != null) cookies.append("; domain=").append(cookie.getDomain());
                     if ("JSESSIONID".equalsIgnoreCase(cookie.getName())) cookies.append("; HttpOnly");
                     cookiesList.add(cookies.toString());
                 }

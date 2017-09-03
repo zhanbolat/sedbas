@@ -1,12 +1,12 @@
-package service;
+package kz.bonita.services.service;
 
+import kz.bonita.services.util.RequestHelper;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Service;
-import util.RequestHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class BonitaServices {
 
-    private final String BONITA_URI = "http://localhost:8081/bonita";
+    private final String BONITA_URI = "http://localhost:8080/bonita";
     private RequestHelper requestHelper = new RequestHelper(BONITA_URI);
 
 

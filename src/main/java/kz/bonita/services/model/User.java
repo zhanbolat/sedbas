@@ -1,4 +1,4 @@
-package model;
+package kz.bonita.services.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
